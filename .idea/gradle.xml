@@ -5,11 +5,23 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/excel" />
-        <option name="gradleHome" value="$USER_HOME$/Pro/gradle-4.1" />
+        <option name="gradleHome" value="$USER_HOME$/Pro/gradle-lastest" />
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/excel" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/qdsl" />
+        <option name="gradleHome" value="$USER_HOME$/Pro/gradle-lastest" />
+        <option name="gradleJvm" value="1.8" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/qdsl" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />

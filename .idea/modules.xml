@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/excel.iml" filepath="$PROJECT_DIR$/.idea/modules/excel.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/excel_main.iml" filepath="$PROJECT_DIR$/.idea/modules/excel_main.iml" group="excel" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/excel_test.iml" filepath="$PROJECT_DIR$/.idea/modules/excel_test.iml" group="excel" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qdsl.iml" filepath="$PROJECT_DIR$/.idea/modules/qdsl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qdsl_main.iml" filepath="$PROJECT_DIR$/.idea/modules/qdsl_main.iml" group="qdsl" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qdsl_test.iml" filepath="$PROJECT_DIR$/.idea/modules/qdsl_test.iml" group="qdsl" />
     </modules>
   </component>
 </project>
