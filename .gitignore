@@ -4,6 +4,7 @@ build/
 .project
 .classpath
 .idea
+.idea/*
 *.iml
 .gradle
 /local.properties
