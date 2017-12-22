@@ -8,7 +8,7 @@ import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.web.bind.annotation.*
 
 /**
- * Created by yinjun on 22/12/2017
+ * Created by SftJun on 22/12/2017
  */
 @Api("Redis")
 @RestController

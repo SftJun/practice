@@ -16,7 +16,7 @@ import org.springframework.data.redis.serializer.RedisSerializer
 import redis.clients.jedis.JedisPoolConfig
 
 /**
- * Created by yinjun on 22/12/2017
+ * Created by SftJun on 22/12/2017
  */
 @Configuration
 open class RedisConfig : CachingConfigurerSupport() {

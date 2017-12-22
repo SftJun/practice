@@ -4,7 +4,7 @@ import com.outlook.sftjun.domain.po.PersonPO
 import com.outlook.sftjun.domain.vo.PersonVO
 
 /**
- * Created by yinjun on 20/12/2017
+ * Created by SftJun on 20/12/2017
  */
 interface PersonXservie {
 

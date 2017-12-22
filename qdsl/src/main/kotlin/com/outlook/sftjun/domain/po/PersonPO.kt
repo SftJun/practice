@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
 /**
- * Created by yinjun on 20/12/2017
+ * Created by SftJun on 20/12/2017
  */
 @ApiModel
 class PersonPO {

@@ -6,7 +6,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource
 import javax.sql.DataSource
 
 /**
- * Created by yinjun on 20/12/2017
+ * Created by SftJun on 20/12/2017
  */
 @Configuration
 open class DataSourceConfig {
