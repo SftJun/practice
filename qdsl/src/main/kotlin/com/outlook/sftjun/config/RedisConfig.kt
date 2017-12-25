@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.cache.CacheManager
 import org.springframework.cache.annotation.CachingConfigurerSupport
+import org.springframework.cache.annotation.EnableCaching
 import org.springframework.cache.interceptor.KeyGenerator
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -18,6 +19,7 @@ import redis.clients.jedis.JedisPoolConfig
 /**
  * Created by SftJun on 22/12/2017
  */
+@EnableCaching
 @Configuration
 open class RedisConfig : CachingConfigurerSupport() {
 
@@ -25,7 +27,7 @@ open class RedisConfig : CachingConfigurerSupport() {
     override fun cacheManager(): CacheManager {
         val cacheManager = RedisCacheManager(redisTemplate())
         cacheManager.apply {
-            setDefaultExpiration(18_000)// 设置默认过期时间单位秒
+            setDefaultExpiration(1 * 60)// 设置默认过期时间单位秒
         }
         return cacheManager
     }
@@ -36,7 +38,9 @@ open class RedisConfig : CachingConfigurerSupport() {
             val stringBuilder = StringBuilder()
             stringBuilder.apply {
                 append(target.javaClass.name)
+                append(".")
                 append(method.name)
+                append("_")
                 params.forEach {
                     this.append(it.toString())
                 }
@@ -49,7 +53,7 @@ open class RedisConfig : CachingConfigurerSupport() {
         // must have factory
         val template = StringRedisTemplate(jedisConnectionFactory())
         template.apply {
-//            valueSerializer = redisSerializer()
+            valueSerializer = redisSerializer()
             afterPropertiesSet()
         }
         return template

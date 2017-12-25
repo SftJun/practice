@@ -6,6 +6,7 @@ buildscript {
     ext.querydsl_version = '4.1.4'
     ext.mysql_version = '5.1.40'
     ext.spring_boot_version = '1.5.9.RELEASE'
+    ext.spring_data_version = '2.0.2.RELEASE'
     ext.swagger_version = '2.7.0'
 
     repositories {

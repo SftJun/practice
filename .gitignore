@@ -3,8 +3,7 @@ build/
 .settings/
 .project
 .classpath
-.idea
-.idea/*
+.idea/
 *.iml
 .gradle
 /local.properties

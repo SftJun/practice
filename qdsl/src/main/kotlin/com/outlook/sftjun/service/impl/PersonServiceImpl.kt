@@ -4,7 +4,9 @@ import com.outlook.sftjun.domain.Person
 import com.outlook.sftjun.repository.PersonRepository
 import com.outlook.sftjun.service.PersonService
 import com.querydsl.core.types.dsl.BooleanExpression
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
@@ -13,7 +15,9 @@ import org.springframework.stereotype.Service
  * Created by SftJun on 20/12/2017
  */
 @Service
-class PersonServiceImpl : PersonService {
+open class PersonServiceImpl : PersonService {
+
+    private val logger = LoggerFactory.getLogger(this::class.java)
 
     @Autowired lateinit var personRepository: PersonRepository
 
@@ -36,5 +40,12 @@ class PersonServiceImpl : PersonService {
 
     override fun findAllBy(predicate: BooleanExpression, pageRequest: PageRequest): Page<Person> {
         return personRepository.findAll(predicate, pageRequest)
+    }
+
+    @Cacheable(cacheNames = arrayOf("person"))
+    override fun findOneById(id: Long): Person? {
+        val person = personRepository.findOne(id)
+        logger.debug("从数据库中取出ID:$id 的Person")
+        return person
     }
 }

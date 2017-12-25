@@ -14,6 +14,8 @@ interface PersonService {
 
     fun update(person: Person): Person
 
+    fun findOneById(id: Long): Person?
+
     fun findOneBy(predicate: BooleanExpression): Person?
 
     fun findAllBy(predicate: BooleanExpression): List<Person>

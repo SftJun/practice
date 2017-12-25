@@ -25,4 +25,11 @@ class PersonController {
     fun add(@Valid @RequestBody po: PersonPO): PersonVO {
         return personXservie.add(po)
     }
+
+    @ApiOperation("查询Person")
+    @PostMapping("/get/{id}")
+    @ResponseBody
+    fun get(@PathVariable id: Long): PersonVO? {
+        return personXservie.findOneById(id)
+    }
 }

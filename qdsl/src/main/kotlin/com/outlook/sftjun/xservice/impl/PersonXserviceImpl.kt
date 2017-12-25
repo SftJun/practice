@@ -25,4 +25,12 @@ class PersonXserviceImpl : PersonXservie {
         BeanUtils.copyProperties(vo, result)
         return vo
     }
+
+    override fun findOneById(id: Long): PersonVO? {
+        val person = personService.findOneById(id)
+        person ?: return null
+        val vo = PersonVO()
+        BeanUtils.copyProperties(vo, person)
+        return vo
+    }
 }
