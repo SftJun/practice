@@ -6,10 +6,12 @@ import com.outlook.sftjun.service.PersonService
 import com.querydsl.core.types.dsl.BooleanExpression
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.cache.annotation.CachePut
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 /**
  * Created by SftJun on 20/12/2017
@@ -25,6 +27,8 @@ open class PersonServiceImpl : PersonService {
         return personRepository.save(person)
     }
 
+    //    @CachePut(cacheNames = arrayOf("person"))
+    @CachePut(key = "#person.id.toString()", value = "person", condition = "#result != null")
     override fun update(person: Person): Person {
         //TODO
         return save(person)
@@ -42,7 +46,12 @@ open class PersonServiceImpl : PersonService {
         return personRepository.findAll(predicate, pageRequest)
     }
 
-    @Cacheable(cacheNames = arrayOf("person"))
+    /**
+     * unless 与 sync 互斥
+     */
+    //    @Cacheable(cacheNames = arrayOf("person"))
+    @Cacheable(key = "#id.toString()", value = "person", sync = true)
+    @Transactional(readOnly = true)
     override fun findOneById(id: Long): Person? {
         val person = personRepository.findOne(id)
         logger.debug("从数据库中取出ID:$id 的Person")

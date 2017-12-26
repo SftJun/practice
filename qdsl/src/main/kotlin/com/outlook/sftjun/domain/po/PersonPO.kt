@@ -20,4 +20,7 @@ class PersonPO {
     @NotBlank
     @NotNull
     var name: String? = null
+
+    @ApiModelProperty("ID")
+    var id: Long? = null
 }

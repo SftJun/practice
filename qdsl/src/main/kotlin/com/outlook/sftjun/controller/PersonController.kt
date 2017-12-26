@@ -32,4 +32,12 @@ class PersonController {
     fun get(@PathVariable id: Long): PersonVO? {
         return personXservie.findOneById(id)
     }
+
+    @ApiOperation("更新对象")
+    @PostMapping("/update")
+    @ResponseBody
+    fun update(@Valid @RequestBody po: PersonPO): PersonVO? {
+        po.id ?: return null
+        return personXservie.update(po)
+    }
 }

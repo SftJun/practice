@@ -27,7 +27,7 @@ open class RedisConfig : CachingConfigurerSupport() {
     override fun cacheManager(): CacheManager {
         val cacheManager = RedisCacheManager(redisTemplate())
         cacheManager.apply {
-            setDefaultExpiration(1 * 60)// 设置默认过期时间单位秒
+            setDefaultExpiration(2 * 60)// 设置默认过期时间单位秒
         }
         return cacheManager
     }
