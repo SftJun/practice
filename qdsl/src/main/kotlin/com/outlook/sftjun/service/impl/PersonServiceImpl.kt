@@ -1,6 +1,7 @@
 package com.outlook.sftjun.service.impl
 
 import com.outlook.sftjun.domain.Person
+import com.outlook.sftjun.domain.QPerson
 import com.outlook.sftjun.repository.PersonRepository
 import com.outlook.sftjun.service.PersonService
 import com.querydsl.core.types.dsl.BooleanExpression
@@ -32,6 +33,12 @@ open class PersonServiceImpl : PersonService {
     override fun update(person: Person): Person {
         //TODO
         return save(person)
+    }
+
+    @Cacheable(value = "person", cacheManager = "customCacheManager", sync = true)
+    override fun findByName(name: String): List<Person> {
+        val predicate = QPerson.person.name.like("%${name}%")
+        return personRepository.findAll(predicate).toList()
     }
 
     override fun findOneBy(predicate: BooleanExpression): Person? {

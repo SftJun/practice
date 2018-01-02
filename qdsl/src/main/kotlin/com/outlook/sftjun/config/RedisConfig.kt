@@ -32,6 +32,13 @@ open class RedisConfig : CachingConfigurerSupport() {
         return cacheManager
     }
 
+    @Bean(name = arrayOf("customCacheManager"))
+    open fun customCacheManager(): CacheManager {
+        val cacheManager = RedisCacheManager(redisTemplate())
+        cacheManager.setDefaultExpiration(5 * 60)
+        return cacheManager
+    }
+
     @Bean
     override fun keyGenerator(): KeyGenerator {
         return KeyGenerator { target, method, params ->
